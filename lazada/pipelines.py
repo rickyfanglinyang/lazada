@@ -23,11 +23,13 @@ class LazadaPipeline(object):
             brand = item['brand'][0]
             price = item["price"][0]
             comment = item["comment"][0]
+            soldBy = item['soldBy'][0]
 
             conn = mysql.connector.connect(host="127.0.0.1", user="root", password="mysql123", db="tb")
             cursor = conn.cursor()
 
-            sql = "insert into goods(title, link, price, comment, brand) values('"+item["title"][0]+"', '"+item["link"]+"', '"+item["price"][0]+"', '"+item["comment"][0]+"', '"+item['brand'][0]+"')"
+            sql = "insert into goods(title, link, price, comment, brand, soldBy) values('"+item["title"][0]+"', '"+item["link"]+"', '"+item["price"][0]+"', '"+item["comment"][0]+"', '"+item['brand'][0]+"', '"+item['soldBy'][0]+"')"
+            
             #print(sql)
 
             cursor.execute(sql)

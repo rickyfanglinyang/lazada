@@ -38,6 +38,7 @@ class LzdSpider(scrapy.Spider):
         item['link'] = (response.url).strip() #Trim space between front and end of the string
         item['brand'] = response.xpath("//div[@class='prod_header_brand_action']/a/span/text()").extract()
         item['price'] =  response.xpath("//div[@class='prod_pricebox_price_final']/span[@id='product_price']/text()").extract()
+        item['soldBy'] =  response.xpath("//div[@class='basic-info__main']/a[@class='basic-info__name']/text()").extract()
 
         comment = response.xpath("//div[@id='review']/a/text()").extract()
         if len(comment) == 0:

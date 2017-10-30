@@ -16,3 +16,4 @@ class LazadaItem(scrapy.Item):
     link = scrapy.Field()
     price = scrapy.Field()
     comment = scrapy.Field()
+    soldBy = scrapy.Field()
